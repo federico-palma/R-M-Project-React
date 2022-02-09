@@ -1,22 +1,30 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Characters from './components/Characters';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Router>
-        <main className="main">
-          <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-          </Switch>
-        </main>
-      </Router>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        
+          <main className="main">
+            <Switch>
+              <Route exact path='/'>
+                <Home />
+              </Route>
+
+              <Route path='/characters'>
+                <Characters />
+              </Route>
+
+            </Switch>
+          </main>
+        
+      </div>
+    </Router>
   );
 }
 

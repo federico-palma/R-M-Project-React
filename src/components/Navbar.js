@@ -1,9 +1,15 @@
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
     return (
         <nav className="navbar">
-            <img id="logo" src={require("../images/RickAndMortyLogo.png")} alt="Rick and Morty logo"/>
+            <Link to='/'>
+                <img id="logo" src={require("../images/RickAndMortyLogo.png")} alt="Rick and Morty logo"/>
+            </Link>
             <div className="navbar-links">
-                <p id="nav-link-character">Characters</p>
+                <Link to='/characters'>
+                    <p id="nav-link-character">Characters</p>
+                </Link>
                 <p id="nav-link-location">Locations</p>
                 <p id="nav-link-episode">Epsiodes</p>
             </div>
