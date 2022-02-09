@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './styles/fonts.css';
 import './index.css';
 import './styles/navbar.css';
 import './styles/home.css';
