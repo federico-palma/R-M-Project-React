@@ -1,0 +1,56 @@
+#characters {
+    margin: auto;
+    font-family: 'Righteous', cursive;
+}
+
+#card-table {
+    margin: auto;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    max-width: 1100px;
+}
+
+.char-card{
+    position: relative;
+    max-width: 216px;
+    height: 300px;
+    margin: 25px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 1px;
+    background-color: #BEE5fD;
+    display: grid;
+    grid-row: 70% 20%;
+    visibility: hidden;
+}
+
+.char-card:hover {
+    cursor: pointer;
+}
+
+.char-img {
+    max-width: 80%;
+    max-height: 90%;
+    margin: auto;
+    margin-top: 17%;
+    box-shadow: 0px 0px 5px 5px #F675Da;
+    border-radius: 50%;
+}
+
+.char-name{
+    margin: auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 2px;
+}
+
+.char-id {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    background-color: rgba(19, 0, 0, 0);
+    width: 20px;
+    text-align: end;
+}
