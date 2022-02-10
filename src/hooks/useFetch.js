@@ -8,7 +8,6 @@ function useFetch(url) {
     useEffect(() => {
         const abortCtr = new AbortController();
 
-        setTimeout(() => {
             fetch(url, { signal: abortCtr.signal})
             .then(res => {
                 if (!res.ok) {
@@ -29,7 +28,6 @@ function useFetch(url) {
                     setIsPending(null);
                 }
             });
-        }, 1000);
 
         return () => abortCtr.abort();
     }, [url]);
