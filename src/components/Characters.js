@@ -1,30 +1,16 @@
+import { useState } from 'react';
 import useFetch from '../hooks/useFetch.js';
-import CharacterCard from './CharacterCard.js';
-
-function getCharCard(singleCharacterData) {
-    let charCard = <CharacterCard singleCharacterData={ singleCharacterData }/>
-    return charCard
-}
-
-function getCharCardList(fullPageCharacterData) {
-    let charCardList = []
-
-    for (let i = 0; i < fullPageCharacterData.results.length; i++) {
-        const singleCharacterData = fullPageCharacterData.results[i];
-        const populatedCharCard = getCharCard(singleCharacterData);
-        charCardList.push(populatedCharCard);
-    }
-
-    return charCardList;
-}
+import CharacterCardPage from './CharacterCardPage.js';
 
 const Characters = () => {
-    const {data: characterData, isPending, error} = useFetch('https://rickandmortyapi.com/api/character');
+    const [url, setUrl] = useState('https://rickandmortyapi.com/api/character')
+
+    const {data: characterData, isPending, error} = useFetch(url);
 
     return (
         <section id="characters">
             <div id="card-table">
-                { characterData && getCharCardList(characterData) }
+                { characterData && <CharacterCardPage charData={ characterData.results }/> }
             </div>
         </section>
     );
