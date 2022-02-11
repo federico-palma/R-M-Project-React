@@ -9,7 +9,7 @@
 
 .home-cards-container {
     margin: 25px;
-    width: 600px;
+    width: min(600px, 80%);
     text-align: center;
     background-color: darkcyan;
     border: 5px darkcyan solid;

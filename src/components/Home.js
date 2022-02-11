@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     return (
         <section id="home">
-            <Link to='/characters'>
-                <div className="home-cards-container">
+            <div className="home-cards-container">
+                <Link to='/characters'>
                     <div className="home-cards" id="char-home-card"></div>
                     <h2 className="home-card-text">Characters</h2>
-                </div>
-            </Link>
+                </Link>
+            </div>
             <div className="home-cards-container">
                 <div className="home-cards" id="location-home-card"></div>
                 <h2 className="home-card-text">Locations</h2>
