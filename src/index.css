@@ -17,9 +17,8 @@ body{
 .main {
     background-color: #d4ec66;
     background-image: url(images/r&m-mainbackground1.jpeg);
-    background-position: center;
-    background-repeat: repeat;
-    background-size: 110%;
+    background-position: center top;
+    background-size: cover;
     background-attachment: fixed;
 }
 
