@@ -33,6 +33,18 @@
     grid-row: 70% 20%;
 }
 
+@media only screen and (max-width: 670px) {
+    .char-card {
+        margin: 5px;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .char-card {
+        max-width: 190px;
+    }
+}
+
 .char-card:hover {
     cursor: pointer;
 }
