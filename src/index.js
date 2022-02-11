@@ -4,6 +4,7 @@ import './styles/fonts.css';
 import './index.css';
 import './styles/navbar.css';
 import './styles/home.css';
+import './styles/characters.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
