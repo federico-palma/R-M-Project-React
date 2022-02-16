@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function useAxiosFetch(endpoint, query, pageNumber) {
-    const [data, setData] = useState(null)
+function useAxiosFetch(endpoint, pageNumber, query) {
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [hasMore, setHasMore ] = useState(false);
+    const [hasMore, setHasMore ] = useState(true);
+    const [nextPageUrl, setNextPageUrl] = useState();
 
 
     useEffect(() => {
@@ -15,14 +16,22 @@ function useAxiosFetch(endpoint, query, pageNumber) {
         let cancel;
         axios({
             method: 'GET',
-            url: 'https://rickandmortyapi.com/api/' + endpoint,
+            baseURL:'https://rickandmortyapi.com/api/',
+            url: endpoint,
             params: { q: query, page: pageNumber },
             cancelToken: new axios.CancelToken(c => cancel = c)
         }).then(res => {
-            console.log(res.data)
-            setHasMore((res.data.info.next) ? true : false)
+            setData(prevData => {
+                if (prevData) {
+                    return [...prevData, ...res.data.results]
+                } else {
+                    return [...res.data.results]
+                }
+            })
             setLoading(false)
-            setData(res.data)
+            setHasMore(res.data.info.next !== null)
+            console.log(res.data.info.next)
+            setNextPageUrl(res.data.info.next)
         }).catch(e => {
             setError(true)
             if (axios.isCancel(e)) return
@@ -31,7 +40,7 @@ function useAxiosFetch(endpoint, query, pageNumber) {
         return  () => cancel;
     }, [query, pageNumber])
 
-    return { data, loading, error, hasMore }
+    return { data, loading, error, hasMore, nextPageUrl }
 }
 
 export default useAxiosFetch;
