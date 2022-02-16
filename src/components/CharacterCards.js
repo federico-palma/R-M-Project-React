@@ -1,4 +1,4 @@
-const CharacterCardPage = (charData) => {
+const CharacterCards = (charData, isLastCard) => {
     // For some reason data comes as a JSobject with array as only property, here's destructered into an array.
     const { charData: dataArray } = charData
 
@@ -23,7 +23,7 @@ const CharacterCardPage = (charData) => {
     }
 
     return (
-        <div className="character-card-page">
+        <div className="character-cards">
             { dataArray.map((singleCharData) => (
                 <div className="char-card" key={ singleCharData.id }>
                     <img src={singleCharData.image} alt="" className="char-img" style={{boxShadow: setImgGenderColor(singleCharData.gender)}}/>
@@ -35,4 +35,4 @@ const CharacterCardPage = (charData) => {
     );
 }
 
-export default CharacterCardPage;
+export default CharacterCards;
