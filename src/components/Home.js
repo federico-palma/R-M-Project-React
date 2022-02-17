@@ -10,8 +10,10 @@ const Home = () => {
                 </Link>
             </div>
             <div className="home-cards-container">
-                <div className="home-cards" id="location-home-card"></div>
-                <h2 className="home-card-text">Locations</h2>
+                <Link to='/locations'>
+                    <div className="home-cards" id="location-home-card"></div>
+                    <h2 className="home-card-text">Locations</h2>
+                </Link>
             </div>
             <div className="home-cards-container">
                 <div className="home-cards" id="episode-home-card"></div>

@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Characters from './components/Characters';
-import Home from './components/Home';
 import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Characters from './components/Characters';
+import Locations from './components/Locations';
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
 
               <Route path='/characters'>
                 <Characters />
+              </Route>
+              <Route path='/locations'>
+                <Locations />
               </Route>
 
             </Switch>
