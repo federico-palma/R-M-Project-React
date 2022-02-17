@@ -41,7 +41,7 @@ const Characters = () => {
 
     return (
         <section id="characters">
-            <div className="character-cards">
+            <div id="character-cards">
                 { data && data.map((singleCharData, index) => {
                     if (data.length === index + 1) {
                         return (
