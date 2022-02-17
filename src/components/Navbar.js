@@ -10,7 +10,9 @@ const Navbar = () => {
                 <Link to='/characters'>
                     <p id="nav-link-character">Characters</p>
                 </Link>
-                <p id="nav-link-location">Locations</p>
+                <Link to='/locations'>
+                    <p id="nav-link-location">Locations</p>
+                </Link>
                 <p id="nav-link-episode">Episodes</p>
             </div>
         </nav>
