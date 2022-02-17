@@ -30,7 +30,6 @@ function useAxiosFetch(endpoint, pageNumber, query) {
             })
             setLoading(false)
             setHasMore(res.data.info.next !== null)
-            console.log(res.data.info.next)
             setNextPageUrl(res.data.info.next)
         }).catch(e => {
             setError(true)
