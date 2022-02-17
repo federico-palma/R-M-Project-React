@@ -2,3 +2,67 @@
     margin: auto;
     font-family: 'Righteous', cursive;
 }
+
+#location-cards {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.location-card{
+    position: relative;
+    width: 400px;
+    min-height: 300px;
+    max-height: fit-content;
+    margin: 25px;
+    padding: 20px 40px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px 1px;
+    background-color: #BEE5fD;
+    display: grid;
+    grid-row: 40% 30% 30%;
+}
+
+.location-name{
+    margin: auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 2px;
+    font-size: 2rem;
+}
+
+.location-id {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    background-color: rgba(19, 0, 0, 0);
+    width: 20px;
+    text-align: end;
+}
+
+.location-type {
+    font-size: 1.5rem;
+}
+
+.location-dimension {
+    font-size: 1.5rem;
+}
+    
+
+.residents-btn {
+    margin: auto;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0);
+    border: 3px solid darkcyan;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-family: 'Righteous', cursive;
+}
+
+.residents-btn:hover {
+    cursor: pointer;
+}
