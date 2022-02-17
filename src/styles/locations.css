@@ -27,6 +27,12 @@
     grid-row: 40% 30% 30%;
 }
 
+@media only screen and (max-width: 1135px) {
+    .location-card {
+        margin: 10px;
+    }
+}
+
 .location-name{
     margin: auto;
     text-align: center;
@@ -51,11 +57,10 @@
 .location-dimension {
     font-size: 1.5rem;
 }
-    
 
 .residents-btn {
     margin: auto;
-    width: 60%;
+    width: 70%;
     background-color: rgba(0, 0, 0, 0);
     border: 3px solid darkcyan;
     border-radius: 8px;
