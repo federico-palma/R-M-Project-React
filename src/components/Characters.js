@@ -5,7 +5,6 @@ import useAxiosFetch from '../hooks/useAxiosFetch.js';
 
 const Characters = () => {
     const [pageNumber, setPageNumber] = useState(1)
-    const [url, setUrl] = useState('https://rickandmortyapi.com/api/character')
 
     const { data, loading, error, hasMore, nextPageUrl } = useAxiosFetch('character/', pageNumber);
 
@@ -15,17 +14,10 @@ const Characters = () => {
         if (observer.current) observer.current.disconnect()
         observer.current = new IntersectionObserver(entries => {
             if (entries[0].isIntersecting && hasMore) {
-                console.log(nextPageUrl)
-                console.log('last card visible')
                 setPageNumber(prevPageNumber => prevPageNumber + 1)
-                console.log(nextPageUrl)
-                
-                
             }
         })
         if (node) observer.current.observe(node)
-
-        console.log(node)
     }, [loading]);
 
     function setImgGenderColor(charGender) {
@@ -51,7 +43,7 @@ const Characters = () => {
     return (
         <section id="characters">
             <div className="character-cards">
-                { data.map((singleCharData, index) => {
+                { data && data.map((singleCharData, index) => {
                     if (data.length === index + 1) {
                         return (
                         <div className="char-card" key={ singleCharData.id } ref={ lastCharCard }>
