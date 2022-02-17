@@ -1,7 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import useAxiosFetch from '../hooks/useAxiosFetch.js';
-// import CharacterCards from './CharacterCards.js';
-
 
 const Characters = () => {
     const [pageNumber, setPageNumber] = useState(1)
