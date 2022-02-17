@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import useAxiosFetch from '../hooks/useAxiosFetch.js';
 
 const Characters = () => {
