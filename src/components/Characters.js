@@ -1,10 +1,11 @@
 import { useState, useRef, useCallback } from 'react';
 import useAxiosFetch from '../hooks/useAxiosFetch.js';
+import MainLoading from './MainLoading.js';
 
 const Characters = () => {
     const [pageNumber, setPageNumber] = useState(1)
 
-    const { data, loading, error, hasMore, nextPageUrl } = useAxiosFetch('character/', pageNumber);
+    const { data, loading, error, hasMore } = useAxiosFetch('character/', pageNumber);
 
     const observer = useRef()
     const lastCharCard = useCallback(node => {
@@ -60,6 +61,7 @@ const Characters = () => {
                         )
                     }
                 })}
+                { loading && <MainLoading/>}
             </div>
         </section>
     );
