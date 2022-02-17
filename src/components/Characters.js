@@ -61,8 +61,8 @@ const Characters = () => {
                         )
                     }
                 })}
-                { loading && <MainLoading/>}
             </div>
+            { loading && <MainLoading/>}
         </section>
     );
 }
