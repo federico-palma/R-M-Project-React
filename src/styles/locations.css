@@ -24,7 +24,6 @@
     box-shadow: 2px 2px 5px 1px;
     background-color: #BEE5fD;
     display: grid;
-    grid-row: 40% 30% 30%;
 }
 
 @media only screen and (max-width: 1135px) {
