@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from 'react';
 import useAxiosFetch from '../hooks/useAxiosFetch.js';
+import CharacterDetailsCard from './CharacterDetailsCard.js';
 import MainLoading from './MainLoading.js';
 
 const Characters = () => {
@@ -45,7 +46,7 @@ const Characters = () => {
                 { data && data.map((singleCharData, index) => {
                     if (data.length === index + 1) {
                         return (
-                        <div className="char-card" key={ singleCharData.id } ref={ lastCharCard }>
+                        <div className="char-card" key={ singleCharData.id } ref={ lastCharCard } onClick="">
                             <img src={singleCharData.image} alt="" className="char-img" style={{boxShadow: setImgGenderColor(singleCharData.gender)}}/>
                             <h2 className="char-name">{ singleCharData.name }</h2>
                             <p className="char-id">{ singleCharData.id }</p>
@@ -62,6 +63,7 @@ const Characters = () => {
                     }
                 })}
             </div>
+            <CharacterDetailsCard />
             { loading && hasMore && <MainLoading/>}
         </section>
     );
