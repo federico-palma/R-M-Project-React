@@ -16,8 +16,10 @@ const Home = () => {
                 </Link>
             </div>
             <div className="home-cards-container">
-                <div className="home-cards" id="episode-home-card"></div>
-                <h2 className="home-card-text">Episodes</h2>
+                <Link to='/episodes'>
+                    <div className="home-cards" id="episode-home-card"></div>
+                    <h2 className="home-card-text">Episodes</h2>
+                </Link>
             </div>
         </section>
     );

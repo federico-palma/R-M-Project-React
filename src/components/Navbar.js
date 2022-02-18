@@ -10,9 +10,11 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <Link to='/'>
-                <img id="logo" src={require("../images/RickAndMortyLogo.png")} alt="Rick and Morty logo"/>
-            </Link>
+            <div>
+                <Link to='/'>
+                    <img id="logo" src={require("../images/RickAndMortyLogo.png")} alt="Rick and Morty logo"/>
+                </Link>
+            </div>
             <div id="hamburger" onClick={ toggleHamburger } className={ isHamMenuOpen ? 'open-burger' : null }>
                 <div className="bar1"></div>
                 <div className="bar2"></div>
@@ -25,7 +27,9 @@ const Navbar = () => {
                 <Link to='/locations'>
                     <p id="nav-link-location">Locations</p>
                 </Link>
-                <p id="nav-link-episode">Episodes</p>
+                <Link to='/episodes'>
+                    <p id="nav-link-episode">Episodes</p>
+                </Link>
             </div>
         </nav>
     );

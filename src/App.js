@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Characters from './components/Characters';
 import Locations from './components/Locations';
+import Episodes from './components/Episodes';
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
               </Route>
               <Route path='/locations'>
                 <Locations />
+              </Route>
+              <Route path='/episodes'>
+                <Episodes />
               </Route>
 
             </Switch>

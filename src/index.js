@@ -6,6 +6,7 @@ import './styles/navbar.css';
 import './styles/home.css';
 import './styles/characters.css';
 import './styles/locations.css';
+import './styles/episodes.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
