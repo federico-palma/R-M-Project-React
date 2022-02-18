@@ -87,6 +87,11 @@
     /* visibility: hidden; */
 }
 
+#char-detail-info-container {
+    width: 100%;
+    height: 100%;
+}
+
 #close-btn {
     background-color: #ff0000;
     border: 2px solid #000000;

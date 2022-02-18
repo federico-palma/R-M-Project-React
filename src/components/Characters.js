@@ -40,13 +40,20 @@ const Characters = () => {
         }
     }
 
+    // Handle details card
+    const [characterID, setCharacterID] = useState(null)
+
+    function handleCharClick(id) {
+        setCharacterID(id)
+    }
+
     return (
         <section id="characters">
             <div id="character-cards">
                 { data && data.map((singleCharData, index) => {
                     if (data.length === index + 1) {
                         return (
-                        <div className="char-card" key={ singleCharData.id } ref={ lastCharCard } onClick="">
+                        <div className="char-card" key={ singleCharData.id } ref={ lastCharCard } onClick={() => {handleCharClick(singleCharData.id)}}>
                             <img src={singleCharData.image} alt="" className="char-img" style={{boxShadow: setImgGenderColor(singleCharData.gender)}}/>
                             <h2 className="char-name">{ singleCharData.name }</h2>
                             <p className="char-id">{ singleCharData.id }</p>
@@ -54,7 +61,7 @@ const Characters = () => {
                         )
                     } else {
                         return (
-                        <div className="char-card" key={ singleCharData.id }>
+                        <div className="char-card" key={ singleCharData.id } onClick={() => {handleCharClick(singleCharData.id)}}>
                             <img src={singleCharData.image} alt="" className="char-img" style={{boxShadow: setImgGenderColor(singleCharData.gender)}}/>
                             <h2 className="char-name">{ singleCharData.name }</h2>
                             <p className="char-id">{ singleCharData.id }</p>
@@ -63,7 +70,7 @@ const Characters = () => {
                     }
                 })}
             </div>
-            <CharacterDetailsCard />
+            { characterID && <CharacterDetailsCard characterID={ characterID } /> }
             { loading && hasMore && <MainLoading/>}
         </section>
     );
