@@ -103,7 +103,7 @@
     
     .closed-menu {
         transform: translate(200px, 0px);
-        transition: 0.1s;
+        /* transition: 0.1s; */
     }
 
     .open-menu {
