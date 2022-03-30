@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState, useRef, useCallback } from 'react';
 import useAxiosFetch from '../hooks/useAxiosFetch.js';
 import MainLoading from './MainLoading.js';
@@ -45,19 +46,19 @@ const Characters = () => {
                 { data && data.map((singleCharData, index) => {
                     if (data.length === index + 1) {
                         return (
-                        <div className="char-card" key={ singleCharData.id } ref={ lastCharCard }>
+                        <Link  to={ `/characters/${singleCharData.id}` } className="char-card" key={ singleCharData.id } ref={ lastCharCard }>
                             <img src={singleCharData.image} alt="" className="char-img" style={{boxShadow: setImgGenderColor(singleCharData.gender)}}/>
                             <h2 className="char-name">{ singleCharData.name }</h2>
                             <p className="char-id">{ singleCharData.id }</p>
-                        </div>
+                        </Link>
                         )
                     } else {
                         return (
-                        <div className="char-card" key={ singleCharData.id }>
+                        <Link  to={ `/characters/${singleCharData.id}` }  className="char-card" key={ singleCharData.id }>
                             <img src={singleCharData.image} alt="" className="char-img" style={{boxShadow: setImgGenderColor(singleCharData.gender)}}/>
                             <h2 className="char-name">{ singleCharData.name }</h2>
                             <p className="char-id">{ singleCharData.id }</p>
-                        </div>
+                        </Link>
                         )
                     }
                 })}

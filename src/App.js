@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Characters from './components/Characters';
+import CharacterDetails from './components/CharacterDetails';
 import Locations from './components/Locations';
 import Episodes from './components/Episodes';
 
@@ -17,8 +18,11 @@ function App() {
                 <Home />
               </Route>
 
-              <Route path='/characters'>
+              <Route exact path='/characters'>
                 <Characters />
+              </Route>
+              <Route path='/characters/:id'>
+                <CharacterDetails />
               </Route>
               <Route path='/locations'>
                 <Locations />
@@ -26,6 +30,8 @@ function App() {
               <Route path='/episodes'>
                 <Episodes />
               </Route>
+
+
 
             </Switch>
           </main>
