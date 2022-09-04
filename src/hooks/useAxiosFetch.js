@@ -12,7 +12,7 @@ function useAxiosFetch(endpoint, pageNumber, query) {
         setError(false);
         let cancel;
 
-        setTimeout(() => {
+        // setTimeout(() => {
             
         axios({
             method: 'GET',
@@ -36,7 +36,7 @@ function useAxiosFetch(endpoint, pageNumber, query) {
         })
 
         return  () => cancel;
-        }, 2000);
+        // }, 2000);
     }, [query, pageNumber])
 
     return { data, loading, error, hasMore }

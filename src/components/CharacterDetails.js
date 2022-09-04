@@ -1,28 +1,28 @@
-import { useState } from 'react';
-import useAxiosFetch from '../hooks/useAxiosFetch.js';
-import MainLoading from './MainLoading.js';
+import { useParams } from "react-router-dom";
+import useAxiosFetchSingle from "../hooks/useAxiosFetchSingle.js";
+import MainLoading from "./MainLoading.js";
 
 const CharacterDetails = () => {
+  const { id } = useParams();
+  const { singleItemData: characterData, loading, error } = useAxiosFetchSingle("character/" + id);
 
-    const { data, loading, error, hasMore } = useAxiosFetch('character/', pageNumber);
+  return (
+    <section id="character-details">
+      {characterData && (
+        <div id="character-details-container">
+          <h1 id="character-name">{characterData.name}</h1>
+          <img src={characterData.image} alt=""></img>
+          <ul id="character-details-list">
+            <li className="character-details-item">Status: {characterData.status}</li>
+            <li className="character-details-item">Gender: {characterData.gender}</li>
+            <li className="character-details-item">Species: {characterData.species}</li>
+            <li className="character-details-item">Origin: {characterData.origin.name}</li>
+          </ul>
+        </div>
+      )}
+      {/* { loading && <MainLoading/>} */}
+    </section>
+  );
+};
 
-
-
-    return (
-        <section id='character-details'>
-            { data && <div id="character-details-container">
-                <h1 id="character-name">{{ characterData.name }}</h1>
-                <img :src="characterData.image" alt="">
-                <ul id="character-details-list">
-                    <li class="character-details-item" :v-if="characterData.status">Status: {{ characterData.status }}</li>
-                    <li class="character-details-item" :v-if="characterData.gender">Gender: {{ characterData.gender }}</li>
-                    <li class="character-details-item" :v-if="characterData.species">Species: {{ characterData.species }}</li>
-                    <li class="character-details-item" :v-if="characterData.origin.name">Origin: {{ characterData.origin.name }}</li>
-                </ul>
-            </div> }
-            { loading && <MainLoading/>}
-        </section>
-    );
-}
- 
 export default CharacterDetails;
