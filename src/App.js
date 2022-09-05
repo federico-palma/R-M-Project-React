@@ -6,6 +6,7 @@ import CharacterDetails from "./Pages/CharacterDetails";
 import Locations from "./Pages/Locations";
 import LocationDetails from "./Pages/LocationDetails";
 import Episodes from "./Pages/Episodes";
+import EpisodeDetails from "./Pages/EpisodeDetails";
 
 function App() {
   return (
@@ -29,8 +30,11 @@ function App() {
             <Route path="/locations/:id">
               <LocationDetails />
             </Route>
-            <Route path="/episodes">
+            <Route exact path="/episodes">
               <Episodes />
+            </Route>
+            <Route path="/episodes/:id">
+              <EpisodeDetails />
             </Route>
           </Switch>
         </main>
