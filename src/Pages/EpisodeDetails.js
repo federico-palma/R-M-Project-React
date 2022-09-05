@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 
 const EpisodeDetails = () => {
   const { id } = useParams();
-  const { data: singleItemData, loading, error } = useAxiosFetchSingle("location/" + id);
+  const { data: singleItemData, loading, error } = useAxiosFetchSingle("episode/" + id);
   const [residentsInfo, setResidentsInfo] = useState();
 
   useEffect(() => {
     let residentsIDs;
     if (singleItemData) {
-      residentsIDs = singleItemData.residents.map(residentUrl => {
+      residentsIDs = singleItemData.characters.map(residentUrl => {
         return residentUrl.replace(/\D/g, "");
       });
       fetch("https://rickandmortyapi.com/api/character/" + residentsIDs)
@@ -23,14 +23,18 @@ const EpisodeDetails = () => {
   }, [singleItemData]);
 
   return (
-    <section id="location-details">
+    <section id="episode-details">
       {singleItemData && (
-        <div id="location-details-container">
-          <h1 id="location-name">{singleItemData.name}</h1>
-          <h2>Type: {singleItemData.type}</h2>
-          {singleItemData.residents && <h2>Residents:</h2>}
-          {!singleItemData.residents && <h2>No residents in this location</h2>}
-          {singleItemData.residents && residentsInfo && (
+        <div id="episode-details-container">
+          <h1 id="episode-name">{singleItemData.name}</h1>
+          <p className="episode-info">
+            Season: {singleItemData.episode.slice(1, 3)} | Episode:{" "}
+            {singleItemData.episode.slice(4)}
+          </p>
+          <p className="episode-info">Air date: {singleItemData.air_date}</p>
+          {singleItemData.characters && <h2>Characters:</h2>}
+          {!singleItemData.characters && <h2>No characters in this episode.</h2>}
+          {singleItemData.characters && residentsInfo && (
             <ul id="residents-list">
               {residentsInfo.map((resident, index) => {
                 return (
