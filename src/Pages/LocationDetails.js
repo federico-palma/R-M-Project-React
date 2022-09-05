@@ -1,25 +1,50 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useAxiosFetchSingle from "../hooks/useAxiosFetchSingle.js";
 import MainLoading from "../components/MainLoading.js";
+import { useEffect, useState } from "react";
 
 const LocationDetails = () => {
   const { id } = useParams();
   const { data: singleItemData, loading, error } = useAxiosFetchSingle("location/" + id);
-  
+  const [residentsInfo, setResidentsInfo] = useState();
+
+  useEffect(() => {
+    let residentsIDs;
+    if (singleItemData) {
+      residentsIDs = singleItemData.residents.map(residentUrl => {
+        return residentUrl.replace(/\D/g, "");
+      });
+      fetch("https://rickandmortyapi.com/api/character/" + residentsIDs)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          setResidentsInfo(Array.isArray(data) ? [...data] : [data]);
+        });
+    }
+  }, [singleItemData]);
+
   return (
     <section id="location-details">
-      <div id="location-details-container" v-if="locationData">
-        <h1 id="location-name">{singleItemData.name}</h1>
-        <h2>Type: {singleItemData.type}</h2>
-        <h2 v-if="residentsPool.length > 0">Residents</h2>
-        <h2 v-else>No residents in this location</h2>
-        <ul id="residents-list" v-if="residentsPool">
-          {/* <router-link tag="li" class="resident-item" v-for="resident in residentsPool" :key="resident.id" :to="{ name: 'character-details', params: {id: resident.id} }"> 
-            <img :src="resident.image" alt="">
-            <p>{{ resident.name }} </p>
-        </router-link> */}
-        </ul>
-      </div>
+      {singleItemData && (
+        <div id="location-details-container">
+          <h1 id="location-name">{singleItemData.name}</h1>
+          <h2>Type: {singleItemData.type}</h2>
+          {singleItemData.residents && <h2>Residents:</h2>}
+          {!singleItemData.residents && <h2>No residents in this location</h2>}
+          {singleItemData.residents && residentsInfo && (
+            <ul id="residents-list">
+              {residentsInfo.map((resident, index) => {
+                return (
+                  <Link to={`/characters/${resident.id}`} className="resident-item" key={index}>
+                    <img src={resident.image} alt={`${resident.name}`}></img>
+                    <p>{resident.name} </p>
+                  </Link>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+      )}
       {loading && <MainLoading />}
       {error && <p className="error-message">There has been an error</p>}
     </section>
