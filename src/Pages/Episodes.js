@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Episodes = () => {
   useEffect(() => {
-    document.title = "Rick & Morty App | Episodes";
+    document.title = "R&M React App | Episodes";
   }, []);
 
   const [pageNumber, setPageNumber] = useState(1);

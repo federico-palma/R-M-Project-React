@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const Home = () => {
   useEffect(() => {
-    document.title = "Rick & Morty App";
+    document.title = "R&M React App";
   }, []);
 
   return (

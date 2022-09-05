@@ -5,7 +5,7 @@ import MainLoading from "../components/MainLoading";
 
 const Characters = () => {
   useEffect(() => {
-    document.title = "Rick & Morty App | Characters";
+    document.title = "R&M React App | Characters";
   }, []);
 
   const [pageNumber, setPageNumber] = useState(1);
