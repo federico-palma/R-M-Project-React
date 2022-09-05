@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <main className="main">
           <Switch>
-            <Route exact path="/">
+            <Route exact path={["/", "/r-m-project-react"]}>
               <Home />
             </Route>
             <Route exact path="/characters">
