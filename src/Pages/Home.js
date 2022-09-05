@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Rick & Morty App";
+  }, []);
+
   return (
     <section id="home">
       <div className="home-cards-container">

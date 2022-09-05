@@ -1,11 +1,14 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import useAxiosFetch from "../hooks/useAxiosFetch.js";
 import MainLoading from "../components/MainLoading";
 import { Link } from "react-router-dom";
 
 const Locations = () => {
-  const [pageNumber, setPageNumber] = useState(1);
+  useEffect(() => {
+    document.title = "Rick & Morty App | Locations";
+  }, []);
 
+  const [pageNumber, setPageNumber] = useState(1);
   const { data, loading, error, hasMore } = useAxiosFetch("location/", pageNumber);
 
   const observer = useRef();
