@@ -21,7 +21,8 @@ body{
     background-position: center top;
     background-size: cover;
     background-attachment: fixed;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 }
 
 section {
@@ -29,6 +30,7 @@ section {
     width: 80%;
     background-color: #7da3a8ca;
     margin: auto;
+    min-height: 100vh;
     height: 100%;
 }
 
