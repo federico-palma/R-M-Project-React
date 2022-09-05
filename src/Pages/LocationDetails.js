@@ -17,7 +17,6 @@ const LocationDetails = () => {
       fetch("https://rickandmortyapi.com/api/character/" + residentsIDs)
         .then(res => res.json())
         .then(data => {
-          console.log(data);
           setResidentsInfo(Array.isArray(data) ? [...data] : [data]);
         });
     }
