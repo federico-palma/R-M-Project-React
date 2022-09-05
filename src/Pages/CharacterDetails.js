@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useAxiosFetchSingle from "../hooks/useAxiosFetchSingle.js";
-import MainLoading from "./MainLoading.js";
+import MainLoading from "../components/MainLoading.js";
 
 const CharacterDetails = () => {
   const { id } = useParams();
@@ -20,7 +20,7 @@ const CharacterDetails = () => {
           </ul>
         </div>
       )}
-      {/* { loading && <MainLoading/>} */}
+      { loading && <MainLoading/>}
     </section>
   );
 };

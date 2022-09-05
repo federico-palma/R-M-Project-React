@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import useAxiosFetch from "../hooks/useAxiosFetch.js";
-import MainLoading from "./MainLoading.js";
+import MainLoading from "../components/MainLoading";
 
 const Episodes = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -19,35 +19,27 @@ const Episodes = () => {
       });
       if (node) observer.current.observe(node);
     },
-    [loading]
+    [loading, hasMore]
   );
 
   function setBackgroundColor(season) {
     switch (season.slice(0, 3)) {
       case "S01":
         return "#7a78dd";
-        break;
       case "S02":
         return "#d35868";
-        break;
       case "S03":
         return "#e98c46";
-        break;
       case "S04":
         return "#85c870";
-        break;
       case "S05":
         return "#eb63df";
-        break;
       case "S06":
         return "#eeec7f";
-        break;
       case "S07":
         return "#82e4cf";
-        break;
       default:
         return "";
-        break;
     }
   }
 
@@ -93,6 +85,7 @@ const Episodes = () => {
           })}
       </div>
       {loading && hasMore && <MainLoading />}
+      {error && <p className="error-message">There has been an error</p>}
     </section>
   );
 };

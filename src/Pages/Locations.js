@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import useAxiosFetch from "../hooks/useAxiosFetch.js";
-import MainLoading from "./MainLoading.js";
+import MainLoading from "../components/MainLoading";
 
 const Locations = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -19,7 +19,7 @@ const Locations = () => {
       });
       if (node) observer.current.observe(node);
     },
-    [loading]
+    [loading, hasMore]
   );
 
   return (
@@ -55,6 +55,7 @@ const Locations = () => {
           })}
       </div>
       {loading && hasMore && <MainLoading />}
+      {error && <p className="error-message">There has been an error</p>}
     </section>
   );
 };

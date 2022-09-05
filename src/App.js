@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Characters from "./components/Characters";
-import CharacterDetails from "./components/CharacterDetails";
-import Locations from "./components/Locations";
-import Episodes from "./components/Episodes";
+import Home from "./Pages/Home";
+import Characters from "./Pages/Characters";
+import CharacterDetails from "./Pages/CharacterDetails";
+import Locations from "./Pages/Locations";
+import Episodes from "./Pages/Episodes";
 
 function App() {
   return (
