@@ -66,3 +66,68 @@
 .episode-char-btn:hover {
   cursor: pointer;
 }
+
+/* Episode details Page */
+#episode-details {
+  margin: auto;
+  font-family: "Righteous", cursive;
+}
+
+#episode-details-container {
+  color: black;
+  position: relative;
+  min-width: 250px;
+  max-width: min(670px, 90%);
+  height: fit-content;
+  margin: auto;
+  padding: 20px 3px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 1px;
+  background-color: #bee5fd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#episode-name {
+  font-size: 2.3rem;
+  text-align: center;
+}
+
+.episode-info {
+  margin: 10px auto;
+  font-size: 1.4rem;
+}
+
+#characters-list {
+  list-style-type: none;
+  font-size: 1.5rem;
+  padding: 0px;
+}
+
+.character-item {
+  display: flex;
+  align-content: center;
+  background-color: rgb(90, 168, 168);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 5px;
+}
+
+.character-item:hover {
+  background-color: rgb(102, 190, 190);
+}
+
+.character-item img {
+  border-radius: 50%;
+  max-width: 77px;
+  height: 15%;
+  justify-self: left;
+}
+
+.character-item p {
+  text-align: center;
+  margin: auto;
+  padding: 0px 5px;
+}
