@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import useAxiosFetch from "../hooks/useAxiosFetch.js";
 import MainLoading from "../components/MainLoading";
+import { Link } from "react-router-dom";
 
 const Locations = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -27,31 +28,22 @@ const Locations = () => {
       <div id="location-cards">
         {data &&
           data.map((singleLocationData, index) => {
-            if (data.length === index + 1) {
-              return (
-                <div className="location-card" key={singleLocationData.id} ref={lastCharCard}>
-                  <p className="location-id">{singleLocationData.id}</p>
-                  <h2 className="location-name">{singleLocationData.name}</h2>
-                  <div>
-                    <p className="location-type">Type: {singleLocationData.type}</p>
-                    <p className="location-dimension">Dimension: {singleLocationData.dimension}</p>
-                  </div>
-                  {/* <button className="residents-btn">Residents</button> */}
+            return (
+              <div
+                className="location-card"
+                key={singleLocationData.id}
+                ref={data.length === index + 1 ? lastCharCard : null}>
+                <p className="location-id">{singleLocationData.id}</p>
+                <h2 className="location-name">{singleLocationData.name}</h2>
+                <div>
+                  <p className="location-type">Type: {singleLocationData.type}</p>
+                  <p className="location-dimension">Dimension: {singleLocationData.dimension}</p>
                 </div>
-              );
-            } else {
-              return (
-                <div className="location-card" key={singleLocationData.id}>
-                  <p className="location-id">{singleLocationData.id}</p>
-                  <h2 className="location-name">{singleLocationData.name}</h2>
-                  <div>
-                    <p className="location-type">Type: {singleLocationData.type}</p>
-                    <p className="location-dimension">Dimension: {singleLocationData.dimension}</p>
-                  </div>
-                  {/* <button className="residents-btn">Residents</button> */}
-                </div>
-              );
-            }
+                <Link to={`/locations/${singleLocationData.id}`} className="residents-btn">
+                  Residents
+                </Link>
+              </div>
+            );
           })}
       </div>
       {loading && hasMore && <MainLoading />}

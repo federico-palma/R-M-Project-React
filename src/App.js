@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Characters from "./Pages/Characters";
 import CharacterDetails from "./Pages/CharacterDetails";
 import Locations from "./Pages/Locations";
+import LocationDetails from "./Pages/LocationDetails";
 import Episodes from "./Pages/Episodes";
 
 function App() {
@@ -22,8 +23,11 @@ function App() {
             <Route path="/characters/:id">
               <CharacterDetails />
             </Route>
-            <Route path="/locations">
+            <Route exact path="/locations">
               <Locations />
+            </Route>
+            <Route path="/locations/:id">
+              <LocationDetails />
             </Route>
             <Route path="/episodes">
               <Episodes />
