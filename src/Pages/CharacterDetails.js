@@ -4,23 +4,24 @@ import MainLoading from "../components/MainLoading.js";
 
 const CharacterDetails = () => {
   const { id } = useParams();
-  const { singleItemData: characterData, loading, error } = useAxiosFetchSingle("character/" + id);
+  const { data: singleItemData, loading, error } = useAxiosFetchSingle("character/" + id);
 
   return (
     <section id="character-details">
-      {characterData && (
+      {singleItemData && (
         <div id="character-details-container">
-          <h1 id="character-name">{characterData.name}</h1>
-          <img src={characterData.image} alt=""></img>
+          <h1 id="character-name">{singleItemData.name}</h1>
+          <img src={singleItemData.image} alt=""></img>
           <ul id="character-details-list">
-            <li className="character-details-item">Status: {characterData.status}</li>
-            <li className="character-details-item">Gender: {characterData.gender}</li>
-            <li className="character-details-item">Species: {characterData.species}</li>
-            <li className="character-details-item">Origin: {characterData.origin.name}</li>
+            <li className="character-details-item">Status: {singleItemData.status}</li>
+            <li className="character-details-item">Gender: {singleItemData.gender}</li>
+            <li className="character-details-item">Species: {singleItemData.species}</li>
+            <li className="character-details-item">Origin: {singleItemData.origin.name}</li>
           </ul>
         </div>
       )}
-      { loading && <MainLoading/>}
+      {loading && <MainLoading />}
+      {error && <p className="error-message">There has been an error</p>}
     </section>
   );
 };

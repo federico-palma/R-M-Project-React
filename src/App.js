@@ -16,7 +16,6 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-
             <Route exact path="/characters">
               <Characters />
             </Route>

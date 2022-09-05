@@ -1,26 +1,36 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function useAxiosFetchSingle(endpoint) {
-    const [singleItemData, setSingleItemData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
+  useEffect(() => {
     setLoading(true);
     setError(false);
-        
-    useEffect(() => {
-        fetch(endpoint)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setLoading(false)
-                setSingleItemData(data)
-            })
-            .catch(err => console.log(err.message)) 
+    let cancel;
 
-        return { singleItemData, loading, error }
-    }, [endpoint])
+    axios({
+      method: "GET",
+      baseURL: "https://rickandmortyapi.com/api/",
+      url: endpoint,
+      cancelToken: new axios.CancelToken(c => (cancel = c)),
+    })
+      .then(res => {
+        setData(res.data);
+        setLoading(false);
+      })
+      .catch(e => {
+        setLoading(false);
+        setError(true);
+        if (axios.isCancel(e)) return;
+      });
+
+    return () => cancel;
+  }, [endpoint]);
+
+  return { data, loading, error };
 }
 
 export default useAxiosFetchSingle;
