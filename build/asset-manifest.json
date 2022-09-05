@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/r-m-project-react/static/css/main.d98e1d20.css",
+    "main.js": "/r-m-project-react/static/js/main.1988a6ff.js",
+    "static/media/r&m-characters.jpeg": "/r-m-project-react/static/media/r&m-characters.8fa8d7a80243889ba254.jpeg",
+    "static/media/RickAndMortyLogo.png": "/r-m-project-react/static/media/RickAndMortyLogo.73831bcc058cd29284f2.png",
+    "static/media/r&m-locations.jpeg": "/r-m-project-react/static/media/r&m-locations.23940cea276929f3fb70.jpeg",
+    "static/media/r&m-mainbackground1.jpeg": "/r-m-project-react/static/media/r&m-mainbackground1.f851b460492e4eaa117a.jpeg",
+    "static/media/r&m-episodes.jpeg": "/r-m-project-react/static/media/r&m-episodes.0704ec5d03e50fb82e61.jpeg",
+    "index.html": "/r-m-project-react/index.html",
+    "main.d98e1d20.css.map": "/r-m-project-react/static/css/main.d98e1d20.css.map",
+    "main.1988a6ff.js.map": "/r-m-project-react/static/js/main.1988a6ff.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d98e1d20.css",
+    "static/js/main.1988a6ff.js"
+  ]
+}
