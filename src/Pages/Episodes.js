@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import useAxiosFetch from "../hooks/useAxiosFetch.js";
 import MainLoading from "../components/MainLoading";
+import { Link } from "react-router-dom";
 
 const Episodes = () => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -48,40 +49,24 @@ const Episodes = () => {
       <div id="episode-cards">
         {data &&
           data.map((singleEpisodeData, index) => {
-            if (data.length === index + 1) {
-              return (
-                <div
-                  className="episode-card"
-                  key={singleEpisodeData.id}
-                  style={{ backgroundColor: setBackgroundColor(singleEpisodeData.episode) }}
-                  ref={lastCharCard}>
-                  <p className="episode-id">{singleEpisodeData.id}</p>
-                  <h2 className="episode-name">{singleEpisodeData.name}</h2>
-                  <p className="episode-number">
-                    Season: {singleEpisodeData.episode.slice(1, 3)} | Episode:{" "}
-                    {singleEpisodeData.episode.slice(4)}
-                  </p>
-                  <p className="episode-date">{singleEpisodeData.air_date}</p>
-                  {/* <button className="episode-char-btn">Characters</button> */}
-                </div>
-              );
-            } else {
-              return (
-                <div
-                  className="episode-card"
-                  key={singleEpisodeData.id}
-                  style={{ backgroundColor: setBackgroundColor(singleEpisodeData.episode) }}>
-                  <p className="episode-id">{singleEpisodeData.id}</p>
-                  <h2 className="episode-name">{singleEpisodeData.name}</h2>
-                  <p className="episode-number">
-                    Season: {singleEpisodeData.episode.slice(1, 3)} | Episode:{" "}
-                    {singleEpisodeData.episode.slice(4)}
-                  </p>
-                  <p className="episode-date">{singleEpisodeData.air_date}</p>
-                  {/* <button className="episode-char-btn">Characters</button> */}
-                </div>
-              );
-            }
+            return (
+              <div
+                className="episode-card"
+                key={singleEpisodeData.id}
+                style={{ backgroundColor: setBackgroundColor(singleEpisodeData.episode) }}
+                ref={data.length === index + 1 ? lastCharCard : null}>
+                <p className="episode-id">{singleEpisodeData.id}</p>
+                <h2 className="episode-name">{singleEpisodeData.name}</h2>
+                <p className="episode-number">
+                  Season: {singleEpisodeData.episode.slice(1, 3)} | Episode:{" "}
+                  {singleEpisodeData.episode.slice(4)}
+                </p>
+                <p className="episode-date">{singleEpisodeData.air_date}</p>
+                <Link to={`/episodes/${singleEpisodeData.id}`} className="episode-char-btn">
+                  Characters
+                </Link>
+              </div>
+            );
           })}
       </div>
       {loading && hasMore && <MainLoading />}
